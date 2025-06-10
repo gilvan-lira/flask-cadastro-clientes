@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Impressão de Cliente</title>
+</head>
+<body>
+    <h1>Dados do Cliente</h1>
+    {% if cliente %}
+        <ul>
+            <li><strong>Nome:</strong> {{ cliente[1] }}</li>
+            <li><strong>Endereço:</strong> {{ cliente[2] }}</li>
+            <li><strong>Bairro:</strong> {{ cliente[3] }}</li>
+            <li><strong>CEP:</strong> {{ cliente[4] }}</li>
+            <li><strong>Cidade:</strong> {{ cliente[5] }}</li>
+            <li><strong>UF:</strong> {{ cliente[6] }}</li>
+            <li><strong>CPF:</strong> {{ cliente[7] }}</li>
+            <li><strong>RG:</strong> {{ cliente[8] }}</li>
+            <li><strong>Órgão Expedidor:</strong> {{ cliente[9] }}</li>
+            <li><strong>Telefone:</strong> {{ cliente[10] }}</li>
+            <li><strong>Processo:</strong> {{ cliente[11] }}</li>
+            <li><strong>Data Inicial:</strong> {{ cliente[14] }}</li>
+            <li><strong>Data Final:</strong> {{ cliente[15] }}</li>
+            <li><strong>Justiça/Vara:</strong> {{ cliente[12] }}</li>
+            <li><strong>WhatsApp:</strong> {{ cliente[13] }}</li>
+        </ul>
+    {% else %}
+        <p>Cliente não encontrado.</p>
+    {% endif %}
+</body>
+</html>

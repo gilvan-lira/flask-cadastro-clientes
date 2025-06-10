@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes Cadastrados</title>
+</head>
+<body>
+    <h1>Clientes Cadastrados</h1>
+
+    <form method="GET" action="{{ url_for('pesquisar') }}">
+        <input type="text" name="nome" placeholder="Buscar por nome">
+        <button type="submit">Pesquisar</button>
+    </form>
+    <br>
+
+    {% if clientes %}
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Nome</th><th>CPF</th><th>Processo</th><th>Telefone</th><th>WhatsApp</th><th>Editar</th><th>Imprimir</th>
+        </tr>
+        {% for c in clientes %}
+        <tr>
+            <td>{{ c[0] }}</td>
+            <td>{{ c[1] }}</td>
+            <td>{{ c[7] }}</td>
+            <td>{{ c[11] }}</td>
+            <td>{{ c[10] }}</td>
+            <td><a href="https://wa.me/{{ c[13] }}" target="_blank">WhatsApp</a></td>
+            <td><a href="{{ url_for('editar', id=c[0]) }}">Editar</a></td>
+            <td><a href="{{ url_for('imprimir', id=c[0]) }}">Imprimir</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p><strong>Nenhum cliente encontrado.</strong></p>
+    {% endif %}
+
+    <br>
+    <a href="/form">← Voltar ao formulário</a>
+</body>
+</html>
